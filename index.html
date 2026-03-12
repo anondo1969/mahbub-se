@@ -1,1 +1,778 @@
-hello world!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahbub Ul Alam</title>
+<meta name="description" content="Personal website of Mahbub Ul Alam — Data Engineer (AI), Researcher, Builder">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#FAFAF7;--surface:#FFFFFF;--text:#2D3436;--text2:#636E72;
+  --accent:#4A7C7E;--accent-h:#3A6163;--accent-light:#EDF5F5;
+  --border:#E8E6E1;--tag:#E8F0ED;--shadow:0 2px 12px rgba(0,0,0,0.06);
+  --radius:12px;--transition:0.3s ease;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none;transition:color var(--transition)}
+a:hover{color:var(--accent-h)}
+
+/* LAYOUT */
+.app{display:flex;min-height:100vh}
+.sidebar{
+  width:260px;position:fixed;top:0;left:0;height:100vh;
+  background:var(--surface);border-right:1px solid var(--border);
+  display:flex;flex-direction:column;padding:40px 0;z-index:100;
+  transition:transform var(--transition);
+}
+.sidebar-header{padding:0 28px 32px;text-align:center}
+.sidebar-photo{
+  width:90px;height:90px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent-light),var(--tag));
+  margin:0 auto 16px;display:flex;align-items:center;justify-content:center;
+  font-size:2rem;color:var(--accent);font-weight:600;overflow:hidden;
+}
+.sidebar-photo img{width:100%;height:100%;object-fit:cover}
+.sidebar-name{font-size:1.1rem;font-weight:700;color:var(--text)}
+.sidebar-title{font-size:0.8rem;color:var(--text2);margin-top:4px;line-height:1.4}
+nav{flex:1;padding:0 12px}
+nav a{
+  display:flex;align-items:center;gap:12px;padding:11px 16px;
+  border-radius:8px;font-size:0.9rem;font-weight:500;color:var(--text2);
+  transition:all var(--transition);margin-bottom:2px;
+}
+nav a:hover{background:var(--accent-light);color:var(--accent)}
+nav a.active{background:var(--accent-light);color:var(--accent);font-weight:600}
+nav a .nav-icon{font-size:1.1rem;width:24px;text-align:center;flex-shrink:0}
+.sidebar-footer{padding:20px 28px 0;border-top:1px solid var(--border);margin-top:auto}
+.social-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.social-links a{
+  width:34px;height:34px;border-radius:50%;background:var(--accent-light);
+  display:flex;align-items:center;justify-content:center;font-size:0.75rem;
+  color:var(--accent);font-weight:600;transition:all var(--transition);
+}
+.social-links a:hover{background:var(--accent);color:#fff}
+
+.main{margin-left:260px;flex:1;min-height:100vh}
+.page{display:none;animation:fadeIn 0.4s ease}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+.page-content{max-width:860px;margin:0 auto;padding:48px 40px 80px}
+.page-hero{padding:60px 40px 40px;max-width:860px;margin:0 auto}
+
+/* MOBILE NAV */
+.mobile-header{
+  display:none;position:fixed;top:0;left:0;right:0;height:60px;
+  background:var(--surface);border-bottom:1px solid var(--border);
+  z-index:200;padding:0 20px;align-items:center;justify-content:space-between;
+}
+.mobile-header .name{font-weight:700;font-size:1rem}
+.hamburger{
+  width:36px;height:36px;display:flex;align-items:center;justify-content:center;
+  background:none;border:none;cursor:pointer;font-size:1.4rem;color:var(--text);
+}
+.overlay{
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,0.3);
+  z-index:99;opacity:0;transition:opacity var(--transition);
+}
+.overlay.show{display:block;opacity:1}
+
+/* TYPOGRAPHY */
+h1{font-size:2.2rem;font-weight:700;line-height:1.25;margin-bottom:8px}
+h2{font-size:1.6rem;font-weight:700;line-height:1.3;margin:48px 0 16px;color:var(--text)}
+h3{font-size:1.2rem;font-weight:600;margin:32px 0 12px}
+p{margin-bottom:16px}
+.subtitle{font-size:1.05rem;color:var(--text2);margin-bottom:32px;line-height:1.6}
+
+/* COMPONENTS */
+.card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:28px;margin-bottom:20px;box-shadow:var(--shadow);transition:all var(--transition);
+}
+.card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.08);transform:translateY(-1px)}
+.tag{
+  display:inline-block;padding:4px 12px;border-radius:20px;font-size:0.78rem;
+  font-weight:500;background:var(--tag);color:var(--accent);margin:3px 2px;
+}
+.tag.award{background:#FFF3E0;color:#E67E22}
+.badge{
+  display:inline-flex;align-items:center;gap:4px;padding:3px 10px;
+  border-radius:6px;font-size:0.72rem;font-weight:600;
+}
+.badge.best-paper{background:#FFF3E0;color:#D35400}
+.btn{
+  display:inline-flex;align-items:center;gap:6px;padding:8px 18px;
+  border-radius:8px;font-size:0.85rem;font-weight:500;
+  transition:all var(--transition);border:1px solid var(--border);
+  background:var(--surface);color:var(--text);cursor:pointer;
+}
+.btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn.primary:hover{background:var(--accent-h)}
+.link-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.divider{height:1px;background:var(--border);margin:40px 0}
+
+/* HERO */
+.hero-section{text-align:center;padding:20px 0 40px}
+.hero-photo{
+  width:140px;height:140px;border-radius:50%;margin:0 auto 24px;
+  background:linear-gradient(135deg,var(--accent-light),var(--tag));
+  display:flex;align-items:center;justify-content:center;font-size:3.5rem;
+  color:var(--accent);overflow:hidden;box-shadow:0 4px 24px rgba(74,124,126,0.15);
+}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.hero-name{font-size:2.4rem;font-weight:700;margin-bottom:6px}
+.hero-tagline{font-size:1rem;color:var(--text2);margin-bottom:6px}
+.hero-location{font-size:0.88rem;color:var(--text2);margin-bottom:24px}
+.hero-bio{
+  max-width:640px;margin:0 auto 32px;font-size:1rem;line-height:1.8;
+  color:var(--text);text-align:left;
+}
+.hero-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+
+/* FEATURED CARDS */
+.featured-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:24px}
+.featured-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:24px;transition:all var(--transition);box-shadow:var(--shadow);cursor:pointer;
+}
+.featured-card:hover{box-shadow:0 6px 24px rgba(0,0,0,0.1);transform:translateY(-2px)}
+.featured-card .fc-icon{font-size:1.6rem;margin-bottom:12px}
+.featured-card .fc-title{font-weight:600;font-size:0.95rem;margin-bottom:6px}
+.featured-card .fc-desc{font-size:0.83rem;color:var(--text2);line-height:1.5}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:28px;margin:24px 0}
+.timeline::before{content:'';position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:var(--border)}
+.timeline-item{position:relative;margin-bottom:32px}
+.timeline-item::before{
+  content:'';position:absolute;left:-24px;top:6px;width:12px;height:12px;
+  border-radius:50%;background:var(--accent-light);border:2px solid var(--accent);
+}
+.timeline-item .tl-year{font-size:0.82rem;font-weight:600;color:var(--accent);margin-bottom:4px}
+.timeline-item .tl-title{font-weight:600;font-size:1rem;margin-bottom:4px}
+.timeline-item .tl-desc{font-size:0.9rem;color:var(--text2);line-height:1.6}
+
+/* PUBLICATIONS */
+.pub-item{margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+.pub-item:last-child{border-bottom:none}
+.pub-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:28px;height:28px;border-radius:50%;background:var(--accent-light);
+  color:var(--accent);font-size:0.78rem;font-weight:700;margin-right:10px;flex-shrink:0;
+}
+.pub-header{display:flex;align-items:flex-start;margin-bottom:6px}
+.pub-title{font-weight:600;font-size:0.95rem;line-height:1.5;flex:1}
+.pub-meta{font-size:0.83rem;color:var(--text2);margin-bottom:8px;line-height:1.5}
+.pub-links{display:flex;flex-wrap:wrap;gap:6px}
+.pub-link{
+  display:inline-flex;align-items:center;gap:4px;padding:4px 10px;
+  border-radius:6px;font-size:0.75rem;font-weight:500;
+  background:var(--accent-light);color:var(--accent);transition:all var(--transition);
+}
+.pub-link:hover{background:var(--accent);color:#fff}
+
+/* STORIES GRID */
+.stories-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin:24px 0}
+.story-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  overflow:hidden;transition:all var(--transition);box-shadow:var(--shadow);
+}
+.story-card:hover{box-shadow:0 6px 24px rgba(0,0,0,0.1);transform:translateY(-2px)}
+.story-img{
+  width:100%;height:200px;background:var(--accent-light);
+  display:flex;align-items:center;justify-content:center;font-size:2.5rem;overflow:hidden;
+}
+.story-img img{width:100%;height:100%;object-fit:cover}
+.story-body{padding:20px}
+.story-body .sc-title{font-weight:600;font-size:0.95rem;margin-bottom:6px}
+.story-body .sc-desc{font-size:0.83rem;color:var(--text2);line-height:1.5}
+
+/* COURSES */
+.course-list{list-style:none}
+.course-list li{
+  padding:12px 0;border-bottom:1px solid var(--border);
+  font-size:0.92rem;
+}
+.course-list li:last-child{border-bottom:none}
+.course-list li a{font-weight:500}
+.course-label{font-size:0.75rem;color:var(--text2);margin-top:2px}
+
+/* PROFILES GRID */
+.profiles-grid{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}
+.profile-link{
+  display:inline-flex;align-items:center;gap:8px;padding:10px 18px;
+  border-radius:8px;background:var(--surface);border:1px solid var(--border);
+  font-size:0.85rem;font-weight:500;color:var(--text);transition:all var(--transition);
+}
+.profile-link:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-light)}
+
+/* PLACEHOLDER PAGE */
+.placeholder{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-height:60vh;text-align:center;
+}
+.placeholder .ph-icon{font-size:4rem;margin-bottom:24px;opacity:0.3}
+.placeholder .ph-title{font-size:1.4rem;font-weight:600;margin-bottom:12px;color:var(--text)}
+.placeholder .ph-text{font-size:1rem;color:var(--text2);max-width:400px;line-height:1.7}
+
+/* EXPANDABLE */
+.expandable{overflow:hidden;max-height:0;transition:max-height 0.5s ease}
+.expandable.open{max-height:2000px}
+.expand-btn{
+  display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:6px;
+  font-size:0.82rem;font-weight:500;background:var(--accent-light);color:var(--accent);
+  cursor:pointer;border:none;transition:all var(--transition);margin-top:8px;
+}
+.expand-btn:hover{background:var(--accent);color:#fff}
+
+/* AWARD CARD */
+.award-card{
+  display:flex;gap:20px;align-items:flex-start;padding:24px;
+  background:linear-gradient(135deg,#FFFCF5,#FFF8EC);border:1px solid #F0E6D3;
+  border-radius:var(--radius);margin-bottom:16px;
+}
+.award-icon{font-size:2rem;flex-shrink:0}
+.award-title{font-weight:600;font-size:0.95rem;margin-bottom:4px}
+.award-desc{font-size:0.85rem;color:var(--text2);line-height:1.5}
+
+/* RESPONSIVE */
+@media(max-width:860px){
+  .sidebar{transform:translateX(-100%)}
+  .sidebar.open{transform:translateX(0)}
+  .mobile-header{display:flex}
+  .main{margin-left:0;padding-top:60px}
+  .page-content,.page-hero{padding:32px 20px 60px}
+  h1{font-size:1.8rem}
+  h2{font-size:1.3rem;margin:36px 0 12px}
+  .hero-name{font-size:1.8rem}
+  .stories-grid{grid-template-columns:1fr}
+  .featured-grid{grid-template-columns:1fr}
+  .award-card{flex-direction:column;gap:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- MOBILE HEADER -->
+<div class="mobile-header">
+  <span class="name">Mahbub Ul Alam</span>
+  <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+</div>
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<div class="app">
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-photo">
+      <!-- Replace with: <img src="images/profile.jpg" alt="Mahbub Ul Alam"> -->
+      M
+    </div>
+    <div class="sidebar-name">Mahbub Ul Alam</div>
+    <div class="sidebar-title">Data Engineer (AI) · Researcher</div>
+  </div>
+  <nav>
+    <a href="#about" class="active" onclick="closeSidebar()"><span class="nav-icon">◉</span> About</a>
+    <a href="#early-years" onclick="closeSidebar()"><span class="nav-icon">◎</span> Early Years</a>
+    <a href="#masters" onclick="closeSidebar()"><span class="nav-icon">◎</span> Masters</a>
+    <a href="#career" onclick="closeSidebar()"><span class="nav-icon">◎</span> Career</a>
+    <a href="#phd" onclick="closeSidebar()"><span class="nav-icon">◎</span> PhD</a>
+    <a href="#writing" onclick="closeSidebar()"><span class="nav-icon">◎</span> Writing</a>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/anondo" target="_blank" title="LinkedIn">in</a>
+      <a href="https://scholar.google.com/citations?user=lIfPGYcAAAAJ" target="_blank" title="Google Scholar">GS</a>
+      <a href="https://github.com/anondo1969" target="_blank" title="GitHub">GH</a>
+      <a href="https://orcid.org/0000-0002-1101-3793" target="_blank" title="ORCID">ID</a>
+      <a href="mailto:mahbub.ul.alam.anondo@gmail.com" title="Email">@</a>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+<!-- ========== ABOUT PAGE ========== -->
+<div class="page active" id="page-about">
+  <div class="page-hero">
+    <div class="hero-section">
+      <div class="hero-photo">
+        <!-- Replace with: <img src="images/profile.jpg" alt="Mahbub Ul Alam"> -->
+        M
+      </div>
+      <div class="hero-name">Mahbub Ul Alam</div>
+      <div class="hero-tagline">Data Engineer (AI) · Researcher · Builder</div>
+      <div class="hero-location">Stockholm, Sweden</div>
+    </div>
+  </div>
+  <div class="page-content" style="padding-top:0">
+    <div class="hero-bio">
+      <p>I'm a Data Engineer (AI) at <a href="https://www.scilifelab.se/data/" target="_blank">SciLifeLab Data Centre</a> in Sweden, where I help life sciences and healthcare researchers leverage AI tools and platforms. My work spans building research infrastructure, developing AI agent workshops, and maintaining the <a href="https://serve.scilifelab.se/" target="_blank">SciLifeLab Serve</a> platform — a hosting environment for 147+ public research applications.</p>
+      <p>Before this, I completed my <a href="#phd">PhD at Stockholm University</a> (2018–2024), focusing on making AI in healthcare both practical and interpretable. My doctoral work connected clinical data with medical imaging to help doctors spot early signs of sepsis and COVID-19, earning two best paper awards along the way.</p>
+      <p>My journey started in Bangladesh, took me through Samsung R&D as a software engineer, then to the University of Stuttgart for a master's in Computational Linguistics, and eventually to Stockholm where I've been ever since. I find the convergence of natural language processing, healthcare AI, and research infrastructure especially compelling.</p>
+      <p>Looking ahead, I'm driven to utilize generative AI — large language models, AI agents, and agentic workflows — to create scalable, accessible, and impactful tools for the research and healthcare community.</p>
+    </div>
+
+    <div class="hero-links">
+      <a href="https://www.linkedin.com/in/anondo" target="_blank" class="btn primary">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=lIfPGYcAAAAJ" target="_blank" class="btn">Google Scholar</a>
+      <a href="https://github.com/anondo1969" target="_blank" class="btn">GitHub</a>
+      <a href="mailto:mahbub.ul.alam.anondo@gmail.com" class="btn">Email</a>
+    </div>
+
+    <h2>Highlights</h2>
+    <div class="featured-grid">
+      <a href="#phd" class="featured-card" style="text-decoration:none;color:inherit">
+        <div class="fc-icon">🎓</div>
+        <div class="fc-title">PhD Thesis</div>
+        <div class="fc-desc">Advancing Clinical Decision Support Using ML & IoMT — 12 publications, 2 best paper awards</div>
+      </a>
+      <a href="https://shamsul.serve.scilifelab.se/" target="_blank" class="featured-card" style="text-decoration:none;color:inherit">
+        <div class="fc-icon">🔬</div>
+        <div class="fc-title">SHAMSUL Demo App</div>
+        <div class="fc-desc">Interactive chest X-ray pathology prediction with interpretability methods</div>
+      </a>
+      <a href="https://serve.scilifelab.se/" target="_blank" class="featured-card" style="text-decoration:none;color:inherit">
+        <div class="fc-icon">🧬</div>
+        <div class="fc-title">SciLifeLab Serve</div>
+        <div class="fc-desc">147+ research applications serving the Swedish life sciences community</div>
+      </a>
+    </div>
+
+    <h2>Journey</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="tl-year">2024 – Present</div>
+        <div class="tl-title">Data Engineer (AI) — SciLifeLab Data Centre</div>
+        <div class="tl-desc">Building AI research infrastructure, developing workshops on AI agents, and maintaining the Serve platform for life sciences researchers across Sweden.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-year">2018 – 2024</div>
+        <div class="tl-title">PhD in Computer & Systems Sciences — Stockholm University</div>
+        <div class="tl-desc">Research on healthcare AI — sepsis prediction, COVID-19 detection, explainable AI, and federated learning. 12 publications, 2 best paper awards.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-year">2014 – 2017</div>
+        <div class="tl-title">MSc Computational Linguistics — University of Stuttgart</div>
+        <div class="tl-desc">Thesis on understanding deep neural networks in automatic speech recognition through novel visualization approaches. Grade: 1.0.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-year">2012 – 2014</div>
+        <div class="tl-title">Software Engineer — Samsung R&D Institute Bangladesh</div>
+        <div class="tl-desc">Software engineering in one of the world's largest technology companies.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== EARLY YEARS PAGE ========== -->
+<div class="page" id="page-early-years">
+  <div class="page-content">
+    <div class="placeholder">
+      <div class="ph-icon">🌱</div>
+      <div class="ph-title">Early Years</div>
+      <div class="ph-text">Stories from high school and college days are on their way. Where every journey begins — the foundations that shaped everything after.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== MASTERS PAGE ========== -->
+<div class="page" id="page-masters">
+  <div class="page-content">
+    <div class="placeholder">
+      <div class="ph-icon">📚</div>
+      <div class="ph-title">Masters</div>
+      <div class="ph-text">The computational linguistics chapter at the University of Stuttgart — where language met machines. Coming soon.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== CAREER PAGE ========== -->
+<div class="page" id="page-career">
+  <div class="page-content">
+    <div class="placeholder">
+      <div class="ph-icon">💼</div>
+      <div class="ph-title">Career</div>
+      <div class="ph-text">From Samsung R&D Bangladesh to SciLifeLab Data Centre in Sweden — the professional journey. Coming soon.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== PhD PAGE ========== -->
+<div class="page" id="page-phd">
+  <div class="page-content">
+    <h1>PhD Journey</h1>
+    <p class="subtitle">Department of Computer and Systems Sciences (DSV), Stockholm University · 2018–2024</p>
+
+    <div class="card" style="text-align:center;padding:40px">
+      <div style="font-size:0.82rem;color:var(--text2);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px">Doctoral Thesis</div>
+      <h3 style="margin-top:0;font-size:1.15rem;line-height:1.5;max-width:640px;margin:0 auto 16px">Advancing Clinical Decision Support Using Machine Learning &amp; the Internet of Medical Things: Enhancing COVID-19 &amp; Early Sepsis Detection</h3>
+      <div style="font-size:0.88rem;color:var(--text2);margin-bottom:20px">Defended March 28, 2024 · <a href="https://www.su.se/english/news/festive-celebrations-in-the-city-hall-1.768138" target="_blank">Conferment Ceremony at Stockholm City Hall, September 27, 2024</a></div>
+      <div class="link-row" style="justify-content:center">
+        <a href="https://www.diva-portal.org/smash/get/diva2:1833062/FULLTEXT03.pdf" target="_blank" class="btn primary">📄 Read Thesis (PDF)</a>
+        <a href="https://urn.kb.se/resolve?urn=urn:nbn:se:su:diva-226027" target="_blank" class="btn">🔗 DiVA Portal</a>
+        <a href="http://mahbub.blogs.dsv.su.se/files/2025/02/defence_presentation_slides.pdf" target="_blank" class="btn">📊 Defense Slides</a>
+      </div>
+    </div>
+
+    <!-- ABSTRACT -->
+    <h2>Abstract</h2>
+    <p>This thesis examines the positive impact of Machine Learning (ML) and the Internet of Medical Things (IoMT) for advancing Clinical Decision Support Systems (CDSS) in COVID-19 and early sepsis detection. It emphasizes patient-centric healthcare systems requiring personalized and participatory care.</p>
+    <div class="expandable" id="abstract-full">
+      <p>The integration of ML-driven CDSSs with IoMT is viewed as an extremely important step that could offer real-time decision-making support and enhance patient health outcomes. The thesis investigates ML's capability to analyze complex medical datasets, identify patterns and correlations, and adapt to changing conditions.</p>
+      <p>Key issues addressed cover data annotation scarcity, data sparsity, and data heterogeneity, along with aspects of security, privacy, and accessibility. The thesis also enhances the interpretability of ML prediction model-based CDSSs. Ethical considerations are prioritized to ensure adherence to the highest standards.</p>
+      <p>The thesis demonstrates the potential and efficacy of combining ML with IoMT to enhance CDSSs by emphasizing the importance of model interpretability, system compatibility, and the integration of multimodal medical data.</p>
+      <p><strong>Keywords:</strong> Internet of Medical Things, Patient-Centric Healthcare, Clinical Decision Support System, Predictive Modeling in Healthcare, COVID-19, Sepsis, Early Sepsis Detection, Lung Segmentation, Interpretability, LIME, SHAP, Grad-CAM, LRP, Electronic Health Records, Machine Learning, Deep Learning, Federated Learning, Semi-Supervised Learning, Multi-Task Learning, Transfer Learning, Multi-Modality, NLP, ClinicalBERT.</p>
+    </div>
+    <button class="expand-btn" onclick="toggleExpand('abstract-full', this)">Read more ▾</button>
+
+    <div class="divider"></div>
+
+    <!-- PHD STORIES -->
+    <h2>PhD Stories</h2>
+    <p style="color:var(--text2);margin-bottom:20px">Click each story to read more about the moment behind it.</p>
+    <div class="stories-grid">
+      <a href="https://mahbub.blogs.dsv.su.se/healthinf-2020-conference-and-best-paper-award/" target="_blank" class="story-card" style="text-decoration:none;color:inherit">
+        <div class="story-img">
+          <!-- Replace with: <img src="images/best-paper-1.jpg" alt="First conference"> -->
+          🏆
+        </div>
+        <div class="story-body">
+          <div class="sc-title">Best/Worst Paper: First Conference</div>
+          <div class="sc-desc">First conference publication… probably a typo that they gave it an award.</div>
+        </div>
+      </a>
+      <a href="https://www.su.se/english/research/news-research/best-student-paper-award-to-phd-student-at-dsv-1.620964" target="_blank" class="story-card" style="text-decoration:none;color:inherit">
+        <div class="story-img">🏅</div>
+        <div class="story-body">
+          <div class="sc-title">Another Award: Okay, Now It's Weird</div>
+          <div class="sc-desc">Best Student Paper at IEEE CBMS 2022. Starting to suspect a pattern.</div>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/posts/anondo_phd-phdlife-activity-7172211385114865665-ZljO" target="_blank" class="story-card" style="text-decoration:none;color:inherit">
+        <div class="story-img">📌</div>
+        <div class="story-body">
+          <div class="sc-title">'Spikning' / Nailing Thesis</div>
+          <div class="sc-desc">Stress relief, PhD style. The Swedish tradition of literally nailing your thesis.</div>
+        </div>
+      </a>
+      <a href="https://www.su.se/forskning/nyheter-forskning/nyhetsartiklar/2024-04-26-battre-vardbeslut-nar-patienters-egna-data-anvands" target="_blank" class="story-card" style="text-decoration:none;color:inherit">
+        <div class="story-img">🎤</div>
+        <div class="story-body">
+          <div class="sc-title">Defending Thesis</div>
+          <div class="sc-desc">No idea what I'm doing — but it worked out.</div>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/posts/institutionen-for-data-och-systemvetenskap-stockholms-universitet_redan-f%C3%B6r-tio-%C3%A5r-sedan-pratades-det-om-att-activity-7189593340030369792-dz7A" target="_blank" class="story-card" style="text-decoration:none;color:inherit">
+        <div class="story-img">😅</div>
+        <div class="story-body">
+          <div class="sc-title">Post-Defense Relief</div>
+          <div class="sc-desc">Wait… did I pass?</div>
+        </div>
+      </a>
+      <a href="https://www.su.se/english/news/festive-celebrations-in-the-city-hall-1.768138" target="_blank" class="story-card" style="text-decoration:none;color:inherit">
+        <div class="story-img">🎉</div>
+        <div class="story-body">
+          <div class="sc-title">Celebrating My Confusion</div>
+          <div class="sc-desc">Grateful for all the patient humans who helped. Conferment at Stockholm City Hall.</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- AWARDS -->
+    <h2>Awards & Grants</h2>
+    <div class="award-card">
+      <div class="award-icon">🏆</div>
+      <div>
+        <div class="award-title">Best Paper Award — HEALTHINF 2020</div>
+        <div class="award-desc">13th International Conference on Health Informatics, for "Deep Learning from Heterogeneous Sequences of Sparse Medical Data for Early Prediction of Sepsis"</div>
+      </div>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">🏅</div>
+      <div>
+        <div class="award-title">Best Student Paper Award — IEEE CBMS 2022</div>
+        <div class="award-desc">IEEE 35th International Symposium on Computer Based Medical Systems, for "Exploring LRP and Grad-CAM visualization to interpret multi-label-multi-class pathology prediction using chest radiography"</div>
+      </div>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">✈️</div>
+      <div>
+        <div class="award-title">Conference Travel Grant — Helge Ax:son Johnson Foundation</div>
+        <div class="award-desc">SEK 13,000 travel grant (2019) from one of Sweden's notable foundations supporting scientific research.</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- PUBLICATIONS -->
+    <h2>Publications</h2>
+    <p style="color:var(--text2);margin-bottom:24px">12 peer-reviewed works (2017–2024). Each includes links to papers, slides, code, and videos where available.</p>
+
+    <div class="pub-item">
+      <div class="pub-header"><span class="pub-num">12</span><span class="pub-title">Advancing Clinical Decision Support Using Machine Learning &amp; the Internet of Medical Things: Enhancing COVID-19 &amp; Early Sepsis Detection</span></div>
+      <div class="pub-meta">M. U. Alam · PhD Dissertation · Stockholm University · 2024</div>
+      <div class="pub-links">
+        <a href="https://www.diva-portal.org/smash/get/diva2:1833062/FULLTEXT03.pdf" target="_blank" class="pub-link">📄 PDF</a>
+        <a href="http://mahbub.blogs.dsv.su.se/files/2025/02/defence_presentation_slides.pdf" target="_blank" class="pub-link">📊 Slides</a>
+        <a href="https://github.com/anondo1969" target="_blank" class="pub-link">💻 Code</a>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-header"><span class="pub-num">11</span><span class="pub-title">SHAMSUL: Systematic Holistic Analysis to investigate Medical Significance Utilizing Local interpretability methods in deep learning for chest radiography pathology prediction</span></div>
+      <div class="pub-meta">M.U. Alam, J. Hollmén, J. R. Baldvinsson, R. Rahmani · Nordic Machine Intelligence · 2023</div>
+      <div class="pub-links">
+        <a href="https://su.diva-portal.org/smash/get/diva2:1813030/FULLTEXT01.pdf" target="_blank" class="pub-link">📄 PDF</a>
+        <a href="https://github.com/anondo1969/SHAMSUL" target="_blank" class="pub-link">💻 Code</a>
+        <a href="https://shamsul.serve.scilifelab.se/" target="_blank" class="pub-link">🔬 Demo App</a>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-header"><span class="pub-num">10</span><span class="pub-title">COVID-19 detection from thermal image and tabular medical data utilizing multi-modal machine learning</span></div>
+      <div class="pub-meta">M.U. Alam, J. Hollmén, R. Rahmani · IEEE CBMS · 2023</div>
+      <div class="pub-links">
+        <a href="https://doi.org/10.1109/CBMS58004.2023.00294" target="_blank" class="pub-link">📄 Paper</a>
+        <a href="https://github.com/anondo1969/thremaltimodal-covidetector/" target="_blank" class="pub-link">💻 Code</a>
+        <a href="https://github.com/anondo1969/thremaltimodal-covidetector/raw/main/slides_and_results/presentation_slides_v3.pdf" target="_blank" class="pub-link">📊 Slides</a>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-header"><span class="pub-num">9</span><span class="pub-title">FedSepsis: A Federated Multi-Modal Deep Learning-Based Internet of Medical Things Application for Early Detection of Sepsis</span></div>
+      <div class="pub-meta">M.U. Alam, R. Rahmani · Sensors · 2023</div>
+      <div class="pub-links">
+        <a href="https://su.diva-portal.org/smash/get/diva2:1727909/FULLTEXT01.pdf" target="_blank" class="pub-link">📄 PDF</a>
+        <a href="http://mahbub.blogs.dsv.su.se/files/2023/01/FedSepsis_Mahbub_Ul_Alam.pdf" target="_blank" class="pub-link">📊 Slides</a>
+        <a href="https://github.com/anondo1969/FedSepsis" target="_blank" class="pub-link">💻 Code</a>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-header">
+        <span class="pub-num">8</span>
+        <span class="pub-title">Exploring LRP and Grad-CAM visualization to interpret multi-label-multi-class pathology prediction using chest radiography</span>
+      </div>
+      <div class="pub-meta">M.U. Alam, J. R. Baldvinsson, Y. Wang · IEEE CBMS · 2022 <span class="badge best-paper">🏅 Best Student Paper</span></div>
+      <div class="pub-links">
+        <a href="https://doi.org/10.1109/CBMS55023.2022.00052" target="_blank" class="pub-link">📄 Paper</a>
+        <a href="https://mahbub.blogs.dsv.su.se/files/2022/07/presentation_slides.pdf" target="_blank" class="pub-link">📊 Slides</a>
+        <a href="https://github.com/anondo1969/lrp-grad_cam-chexpert" target="_blank" class="pub-link">💻 Code</a>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-header"><span class="pub-num">7</span><span class="pub-title">Federated Semi-Supervised Multi-Task Learning to Detect COVID-19 and Lungs Segmentation Marking Using Chest Radiography Images and Raspberry Pi Devices</span></div>
+      <div class="pub-meta">M.U. Alam, R. Rahmani · Sensors · 2021</div>
+      <div class="pub-links">
+        <a href="https://su.diva-portal.org/smash/get/diva2:1582175/FULLTEXT01.pdf" target="_blank" class="pub-link">📄 PDF</a>
+        <a href="http://mahbub.blogs.dsv.su.se/files/2022/05/poster_Mahbub_Ul_Alam.pdf" target="_blank" class="pub-link">📋 Poster</a>
+        <a href="https://github.com/anondo1969/FedSemiCovidDetector" target="_blank" class="pub-link">💻 Code</a>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-header"><span class="pub-num">6</span><span class="pub-title">Cognitive Internet of Medical Things Architecture for Decision Support Tool to Detect Early Sepsis Using Deep Learning</span></div>
+      <div class="pub-meta">M.U. Alam, R. Rahmani · CCIS, vol 1400. Springer · 2021</div>
+      <div class="pub-links">
+        <a href="https://link.springer.com/chapter/10.1007%2F978-3-030-72379-8_18" target="_blank" class="pub-link">📄 Paper</a>
+        <a href="https://github.com/anondo1969/FedSepsis/tree/main/FedSepsis_codes/single_server_setting/sepsis_prediction/1_numeric" target="_blank" class="pub-link">💻 Code</a>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-header"><span class="pub-num">5</span><span class="pub-title">The accuracy of fully-automated algorithms for surveillance of healthcare-associated urinary tract infections in hospitalized patients</span></div>
+      <div class="pub-meta">S. Van Der Werff, E. Thiman, H. Tanushi, J.K. Valik, A. Henriksson, M. Ul Alam, H. Dalianis, A. Ternhag, P. Naucler · Journal of Hospital Infection · 2021</div>
+      <div class="pub-links">
+        <a href="https://doi.org/10.1016/j.jhin.2021.01.023" target="_blank" class="pub-link">📄 Paper</a>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-header"><span class="pub-num">4</span><span class="pub-title">Terminology Expansion with Prototype Embeddings: Extracting Symptoms of Urinary Tract Infection from Clinical Text</span></div>
+      <div class="pub-meta">M.U. Alam, A. Henriksson, H. Tanushi, E. Thiman, P. Naucler, H. Dalianis · HEALTHINF · 2021</div>
+      <div class="pub-links">
+        <a href="https://www.scitepress.org/Papers/2021/101902/101902.pdf" target="_blank" class="pub-link">📄 PDF</a>
+        <a href="http://mahbub.blogs.dsv.su.se/files/2021/02/HEALTHINF_2021_presentation_slides_Mahbub_Ul_Alam.pdf" target="_blank" class="pub-link">📊 Slides</a>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-header"><span class="pub-num">3</span><span class="pub-title">Intelligent context-based healthcare metadata aggregator in internet of medical things platform</span></div>
+      <div class="pub-meta">M.U. Alam, R. Rahmani · Procedia Computer Science · 2020</div>
+      <div class="pub-links">
+        <a href="https://su.diva-portal.org/smash/get/diva2:1505356/FULLTEXT01.pdf" target="_blank" class="pub-link">📄 PDF</a>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-header">
+        <span class="pub-num">2</span>
+        <span class="pub-title">Deep Learning from Heterogeneous Sequences of Sparse Medical Data for Early Prediction of Sepsis</span>
+      </div>
+      <div class="pub-meta">M.U. Alam, A. Henriksson, J. Karlsson Valik, L. Ward, P. Naucler, H. Dalianis · HEALTHINF · 2020 <span class="badge best-paper">🏆 Best Paper</span></div>
+      <div class="pub-links">
+        <a href="https://su.diva-portal.org/smash/get/diva2:1684092/FULLTEXT01.pdf" target="_blank" class="pub-link">📄 PDF</a>
+        <a href="https://mahbub.blogs.dsv.su.se/files/2020/04/HEALTHINF_2020_presentation_slides_Mahbub_Ul_Alam.pdf" target="_blank" class="pub-link">📊 Slides</a>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-header"><span class="pub-num">1</span><span class="pub-title">From speech to image; a novel approach to understand the hidden layer mechanisms of deep neural networks in automatic speech recognition</span></div>
+      <div class="pub-meta">M.U. Alam · Master's Thesis (Grade: 1.0) · University of Stuttgart · 2017</div>
+      <div class="pub-links">
+        <a href="http://dx.doi.org/10.13140/RG.2.2.18693.01765" target="_blank" class="pub-link">📄 PDF</a>
+        <a href="https://drive.google.com/file/d/1vN8bIXMk_q4KN0DC6-5jkPPzjueLDuqu/view" target="_blank" class="pub-link">📊 Slides</a>
+        <a href="https://github.com/anondo1969/deep-speech-vis" target="_blank" class="pub-link">💻 Code</a>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SHAMSUL DEMO -->
+    <h2>SHAMSUL Demo App</h2>
+    <div class="card">
+      <h3 style="margin-top:0">Systematic Holistic Analysis to investigate Medical Significance Utilizing Local interpretability methods</h3>
+      <p style="color:var(--text2)">SHAMSUL explores interpretability for chest X-ray pathology predictions using Grad-CAM, LIME, SHAP, and LRP. It provides heatmaps and evaluation metrics for better insights into the medical significance of deep learning predictions.</p>
+      <p style="font-size:0.85rem;color:var(--text2);font-style:italic">The acronym SHAMSUL, derived from a Semitic word meaning "the Sun," symbolizes our heatmap-based interpretability approach aimed at unveiling the medical significance in predictions of black box deep learning models.</p>
+      <div class="link-row">
+        <a href="https://shamsul.serve.scilifelab.se/" target="_blank" class="btn primary">🔬 Try the Demo App</a>
+        <a href="https://journals.uio.no/NMI/article/view/10471" target="_blank" class="btn">📄 Read the Paper</a>
+        <a href="https://github.com/anondo1969/SHAMSUL" target="_blank" class="btn">💻 Source Code</a>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- TEACHING -->
+    <h2>Teaching</h2>
+    <p style="color:var(--text2);margin-bottom:16px">Courses taught at Stockholm University during the PhD:</p>
+    <ul class="course-list">
+      <li><a href="https://www.su.se/english/search-courses-and-programmes/ib495c-1.497849" target="_blank">Internet of Things Services (IoT)</a></li>
+      <li><a href="https://www.su.se/sok-kurser-och-program/ib139n-1.497862" target="_blank">Datorsystem / Computer Systems (DA)</a></li>
+      <li><a href="https://www.su.se/english/search-courses-and-programmes/ml480n-1.497922" target="_blank">Introduction to Design for Creative and Immersive Technology (IDCI)</a></li>
+      <li><a href="https://www.su.se/english/search-courses-and-programmes/ml467c-1.497919" target="_blank">Digital Business Strategies and Change Management (DIGMAN)</a></li>
+      <li><a href="https://www.su.se/english/search-courses-and-programmes/ib476c-1.540626" target="_blank">System Integration of IT Business Information Systems (SYSINT)</a></li>
+      <li><a href="https://www.su.se/english/search-courses-and-programmes/ib581n-1.497860" target="_blank">Big Data with NoSQL Databases (BIGDATA)</a></li>
+      <li><a href="https://www.su.se/english/search-courses-and-programmes/ib926b-1.411909" target="_blank">Internet Search Techniques and Business Intelligence (ISBI)</a></li>
+      <li><a href="https://www.su.se/english/search-courses-and-programmes/ml413n-1.497920" target="_blank">Project Management and Tools for Health Informatics (PROHI)</a></li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <!-- NEWS -->
+    <h2>News & Media</h2>
+    <div class="card">
+      <a href="https://www.su.se/forskning/nyheter-forskning/nyhetsartiklar/2024-04-26-battre-vardbeslut-nar-patienters-egna-data-anvands" target="_blank" style="font-weight:600">Bättre vårdbeslut när patienters egna data används</a>
+      <p style="font-size:0.85rem;color:var(--text2);margin-top:4px;margin-bottom:0">Stockholm University News — Better healthcare decisions when patients' own data is used (2024)</p>
+    </div>
+    <div class="card">
+      <a href="https://biggani.org/smart_healthcare_mahbub-ul-alam/" target="_blank" style="font-weight:600">বিজ্ঞানীর সাক্ষাৎকার: স্মার্ট-স্বাস্থ্যসেবার বিজ্ঞানী মাহবুব উল আলম</a>
+      <p style="font-size:0.85rem;color:var(--text2);margin-top:4px;margin-bottom:0">Biggani.org — Scientist's Interview: Smart Healthcare Scientist Mahbub Ul Alam</p>
+    </div>
+    <div class="card">
+      <a href="https://www.su.se/english/research/news-research/best-student-paper-award-to-phd-student-at-dsv-1.620964" target="_blank" style="font-weight:600">Best student paper award to PhD student at DSV</a>
+      <p style="font-size:0.85rem;color:var(--text2);margin-top:4px;margin-bottom:0">Stockholm University News — Coverage of IEEE CBMS 2022 award (2022)</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ACADEMIC PROFILES -->
+    <h2>Academic Profiles</h2>
+    <div class="profiles-grid">
+      <a href="https://scholar.google.com/citations?user=lIfPGYcAAAAJ&hl=en" target="_blank" class="profile-link">📊 Google Scholar</a>
+      <a href="https://github.com/anondo1969" target="_blank" class="profile-link">💻 GitHub</a>
+      <a href="https://www.researchgate.net/profile/Mahbub_Ul_Alam2" target="_blank" class="profile-link">🔬 ResearchGate</a>
+      <a href="https://www.scopus.com/authid/detail.uri?authorId=57222724737" target="_blank" class="profile-link">📑 Scopus</a>
+      <a href="https://orcid.org/0000-0002-1101-3793" target="_blank" class="profile-link">🆔 ORCID</a>
+      <a href="https://www.semanticscholar.org/author/Mahbub-Ul-Alam/153494049" target="_blank" class="profile-link">📚 Semantic Scholar</a>
+      <a href="https://dblp.org/pid/275/6183-1.html" target="_blank" class="profile-link">📖 DBLP</a>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- GRATITUDE -->
+    <h2>Gratitude</h2>
+    <div class="card" style="background:linear-gradient(135deg,#FAFAF7,#F5F0EB);border-color:#E8E0D8">
+      <p style="font-style:italic;color:var(--text2);margin-bottom:0">The acknowledgements section from my thesis holds all the people who made this journey possible. You can read the full gratitude section in pages xiii–xv of the <a href="https://www.diva-portal.org/smash/get/diva2:1833062/FULLTEXT03.pdf" target="_blank">thesis PDF</a>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ========== WRITING PAGE ========== -->
+<div class="page" id="page-writing">
+  <div class="page-content">
+    <div class="placeholder">
+      <div class="ph-icon">✍️</div>
+      <div class="ph-title">Writing</div>
+      <div class="ph-text">Personal reflections, essays, and thoughts — a space for words beyond research. Coming soon.</div>
+    </div>
+  </div>
+</div>
+
+</main>
+</div>
+
+<!-- FOOTER -->
+<div style="margin-left:260px;text-align:center;padding:24px;font-size:0.8rem;color:var(--text2);border-top:1px solid var(--border)">
+  © 2026 Mahbub Ul Alam · <a href="https://ongshi.com" target="_blank" style="color:var(--text2)">ongshi.com</a>
+</div>
+
+<script>
+// SPA Router
+const pages = {
+  'about':'page-about','early-years':'page-early-years','masters':'page-masters',
+  'career':'page-career','phd':'page-phd','writing':'page-writing'
+};
+
+function navigate(hash) {
+  const key = (hash||'').replace('#','') || 'about';
+  const pageId = pages[key] || 'page-about';
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById(pageId);
+  if (target) {
+    target.classList.remove('active');
+    void target.offsetWidth; // force reflow for animation
+    target.classList.add('active');
+  }
+  document.querySelectorAll('nav a').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + key);
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+  // Update title
+  const titles = {'about':'About','early-years':'Early Years','masters':'Masters','career':'Career','phd':'PhD','writing':'Writing'};
+  document.title = (titles[key]||'About') + ' — Mahbub Ul Alam';
+}
+
+window.addEventListener('hashchange', () => navigate(location.hash));
+window.addEventListener('DOMContentLoaded', () => navigate(location.hash));
+
+// Sidebar toggle (mobile)
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('show');
+}
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('overlay').classList.remove('show');
+}
+
+// Expandable sections
+function toggleExpand(id, btn) {
+  const el = document.getElementById(id);
+  el.classList.toggle('open');
+  btn.textContent = el.classList.contains('open') ? 'Show less ▴' : 'Read more ▾';
+}
+</script>
+</body>
+</html>
