@@ -804,7 +804,7 @@ p{margin-bottom:16px}
               কেঁপে কেঁপে ওঠে।
             </p>
           </div>
-          <button class="expand-btn" onclick="toggleExpand('lyrics-bn-1', this)">আরো পড়ুন ▾</button>
+          <button class="expand-btn" onclick="toggleExpandBengali('lyrics-bn-1', this)">আরো পড়ুন ▾</button>
         </div>
 
         <div style="height:1px; background:rgba(0,0,0,0.08); margin:20px 0;"></div>
@@ -912,7 +912,7 @@ p{margin-bottom:16px}
               আর কিছু নয় ||
             </p>
           </div>
-          <button class="expand-btn" onclick="toggleExpand('lyrics-bn-2', this)">আরো পড়ুন ▾</button>
+          <button class="expand-btn" onclick="toggleExpandBengali('lyrics-bn-2', this)">আরো পড়ুন ▾</button>
         </div>
 
         <div style="height:1px; background:rgba(0,0,0,0.08); margin:20px 0;"></div>
@@ -1013,7 +1013,7 @@ p{margin-bottom:16px}
               আগুন জ্বালা, আগুন জ্বালা, ফেল্ উপাড়ি॥
             </p>
           </div>
-          <button class="expand-btn" onclick="toggleExpand('lyrics-bn-3', this)">আরো পড়ুন ▾</button>
+          <button class="expand-btn" onclick="toggleExpandBengali('lyrics-bn-3', this)">আরো পড়ুন ▾</button>
         </div>
 
         <div style="height:1px; background:rgba(0,0,0,0.08); margin:20px 0;"></div>
@@ -1114,6 +1114,12 @@ function toggleExpand(id, btn) {
   const el = document.getElementById(id);
   el.classList.toggle('open');
   btn.textContent = el.classList.contains('open') ? 'Show less ▴' : 'Read more ▾';
+}
+// Expandable bengali sections
+function toggleExpandBengali(id, btn) {
+  const el = document.getElementById(id);
+  el.classList.toggle('open');
+  btn.textContent = el.classList.contains('open') ? 'কমিয়ে দেখুন ▴' : 'আরো পড়ুন ▾';
 }
 </script>
 </body>
