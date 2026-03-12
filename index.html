@@ -280,7 +280,7 @@ p{margin-bottom:16px}
     <div class="sidebar-title">Data Engineer (AI) · Researcher</div>
   </div>
   <nav>
-    <a href="#about" onclick="closeSidebar()"><span class="nav-icon">◉</span> About</a>
+    <a href="#about" class="active" onclick="closeSidebar()"><span class="nav-icon">◎</span> About</a>
     <a href="#career" onclick="closeSidebar()"><span class="nav-icon">◎</span> Career</a>
     <a href="#phd" onclick="closeSidebar()"><span class="nav-icon">◎</span> PhD</a>
     <a href="#masters" onclick="closeSidebar()"><span class="nav-icon">◎</span> Masters</a>
@@ -1080,27 +1080,17 @@ const pages = {
 function navigate(hash) {
   const key = (hash||'').replace('#','') || 'about';
   const pageId = pages[key] || 'page-about';
-  
-  // Hide all pages
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  
-  // Show target page
   const target = document.getElementById(pageId);
   if (target) {
+    target.classList.remove('active');
+    void target.offsetWidth; // force reflow for animation
     target.classList.add('active');
   }
-  
-  // Update nav active state - FIX HERE
   document.querySelectorAll('nav a').forEach(a => {
-    const href = a.getAttribute('href');
-    a.classList.remove('active');
-    if (href === '#' + key) {
-      a.classList.add('active');
-    }
+    a.classList.toggle('active', a.getAttribute('href') === '#' + key);
   });
-  
   window.scrollTo({top:0,behavior:'smooth'});
-  
   // Update title
   const titles = {'about':'About','early-years':'Early Years','masters':'Masters','career':'Career','phd':'PhD','writing':'Writing','ai-music':'AI Music'};
   document.title = (titles[key]||'About') + ' — Mahbub Ul Alam';
