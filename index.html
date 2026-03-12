@@ -285,6 +285,7 @@ p{margin-bottom:16px}
     <a href="#career" onclick="closeSidebar()"><span class="nav-icon">◎</span> Career</a>
     <a href="#phd" onclick="closeSidebar()"><span class="nav-icon">◎</span> PhD</a>
     <a href="#writing" onclick="closeSidebar()"><span class="nav-icon">◎</span> Writing</a>
+    <a href="#ai-music" onclick="closeSidebar()"><span class="nav-icon">◎</span> AI Music</a>
   </nav>
   <div class="sidebar-footer">
     <div class="social-links">
@@ -733,6 +734,17 @@ p{margin-bottom:16px}
   </div>
 </div>
 
+<!-- ========== AI MUSIC PAGE ========== -->
+<div class="page" id="page-ai-music">
+  <div class="page-content">
+    <div class="placeholder">
+      <div class="ph-icon">🎵</div>
+      <div class="ph-title">AI Music</div>
+      <div class="ph-text">Proof that even tone-deaf humans can birth bangers with enough AI therapy. Coming soon.</div>
+    </div>
+  </div>
+</div>
+
 </main>
 </div>
 
@@ -745,7 +757,7 @@ p{margin-bottom:16px}
 // SPA Router
 const pages = {
   'about':'page-about','early-years':'page-early-years','masters':'page-masters',
-  'career':'page-career','phd':'page-phd','writing':'page-writing'
+  'career':'page-career','phd':'page-phd','writing':'page-writing','ai-music':'page-ai-music'
 };
 
 function navigate(hash) {
@@ -763,7 +775,7 @@ function navigate(hash) {
   });
   window.scrollTo({top:0,behavior:'smooth'});
   // Update title
-  const titles = {'about':'About','early-years':'Early Years','masters':'Masters','career':'Career','phd':'PhD','writing':'Writing'};
+  const titles = {'about':'About','early-years':'Early Years','masters':'Masters','career':'Career','phd':'PhD','writing':'Writing','ai-music':'AI Music'};
   document.title = (titles[key]||'About') + ' — Mahbub Ul Alam';
 }
 
