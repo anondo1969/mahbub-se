@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing — mahbub.se</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;700&family=Noto+Serif+Bengali:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="icon" type="image/jpeg" href="media/profile.jpg">
+<link rel="apple-touch-icon" href="media/profile.jpg">
+</head>
+<body>
+
+<div class="topbar"><div class="topbar-inner">
+  <a class="brand" href="index.html#about">
+    <div class="monogram"><img src="media/profile.jpg" alt="Mahbub Ul Alam"></div>
+    <div><span class="brand-name">Mahbub Ul Alam</span><span class="brand-sub">Built from pieces · Adrift by choice · Machines to dream · On no one's time</span></div>
+  </a>
+  <button class="burger" id="burger" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+</div></div>
+
+<div class="scrim" id="scrim" onclick="toggleNav()"></div>
+<nav class="panel" id="panel">
+  <div class="panel-label">Contents</div>
+  <a class="nav-link" href="index.html#about"><span class="nav-num">01</span>About</a>
+  <a class="nav-link" href="index.html#early"><span class="nav-num">02</span>Early Years</a>
+  <a class="nav-link" href="index.html#masters"><span class="nav-num">03</span>Masters</a>
+  <a class="nav-link" href="index.html#career"><span class="nav-num">04</span>Career</a>
+  <a class="nav-link" href="index.html#phd"><span class="nav-num">05</span>Doctoral work</a>
+  <a class="nav-link" href="index.html#tools"><span class="nav-num">06</span>Building Tools</a>
+  <a class="nav-link" href="index.html#writing-current"><span class="nav-num">07</span>Current Writing</a>
+  <a class="nav-link" href="index.html#writing-early"><span class="nav-num">08</span>Early Writing</a>
+  <a class="nav-link" href="index.html#music"><span class="nav-num">09</span>AI Music</a>
+  <div class="panel-foot">
+    mahbub.se<br>
+    <a href="https://github.com/anondo1969" target="_blank" rel="noopener">github</a> ·
+    <a href="https://www.linkedin.com/in/anondo" target="_blank" rel="noopener">linkedin</a> ·
+    <a href="https://scholar.google.com/citations?user=lIfPGYcAAAAJ" target="_blank" rel="noopener">scholar</a><br>
+    <a href="https://ongshi.com" target="_blank" rel="noopener">ongshi.com</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section class="page active" style="padding-top:50px">
+    <a class="back" id="backLink" href="index.html#writing-current">← Back</a>
+    <div class="post-meta" id="postMeta"></div>
+    <article class="post-body" id="postBody"><p class="loading">Loading…</p></article>
+    <div class="mantra">Build slowly, write often</div>
+  </section>
+
+  <footer>
+    <div class="links">
+      <a href="https://github.com/anondo1969" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/anondo" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=lIfPGYcAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://ongshi.com" target="_blank" rel="noopener">ongshi.com</a>
+    </div>
+    <div class="cr">© 2026 Mahbub Ul Alam · <a href="https://mahbub.se" target="_blank" rel="noopener">mahbub.se</a></div>
+  </footer>
+</main>
+
+<script src="assets/app.js"></script>
+<script>
+/* Parse "---" YAML-ish frontmatter into {meta, body} */
+function parseFrontmatter(text){
+  const m = text.match(/^\uFEFF?---\s*\n([\s\S]*?)\n---\s*\n?/);
+  let meta = {}, body = text;
+  if(m){
+    body = text.slice(m[0].length);
+    m[1].split('\n').forEach(line=>{
+      const i = line.indexOf(':');
+      if(i > -1){
+        const key = line.slice(0,i).trim();
+        let val = line.slice(i+1).trim().replace(/^["']|["']$/g,'');
+        if(key) meta[key] = val;
+      }
+    });
+  }
+  return {meta, body};
+}
+
+function param(name){
+  return new URLSearchParams(location.search).get(name);
+}
+
+async function loadPost(){
+  const section = (param('section') || 'current').replace(/[^a-z0-9_-]/gi,'');
+  const slug = (param('slug') || '').replace(/[^a-z0-9_.-]/gi,'');
+  const bodyEl = document.getElementById('postBody');
+  const metaEl = document.getElementById('postMeta');
+
+  if(!slug){
+    bodyEl.innerHTML = '<p class="loading">No post specified.</p>';
+    return;
+  }
+
+  // section-aware back link
+  const backMap = {
+    current: ['index.html#writing-current', '← Back to current writing'],
+    early:   ['index.html#writing-early',   '← Back to early writing'],
+    music:   ['index.html#music',           '← Back to AI music']
+  };
+  const back = document.getElementById('backLink');
+  const bm = backMap[section] || backMap.current;
+  back.href = bm[0]; back.textContent = bm[1];
+
+  try{
+    const res = await fetch(`posts/${section}/${slug}.md`, {cache:'no-store'});
+    if(!res.ok) throw new Error(res.status);
+    const text = await res.text();
+    const {meta, body} = parseFrontmatter(text);
+
+    const bn = meta.lang === 'bn';
+    bodyEl.className = 'post-body' + (bn ? ' bn' : '');
+
+    const date = (meta.date || '').replace(/-/g,' · ');
+    const kind = meta.type ? ` · ${meta.type}` : '';
+    metaEl.textContent = date ? (date + kind) : '';
+
+    bodyEl.innerHTML = marked.parse(body);
+    if(meta.title) document.title = meta.title + ' — mahbub.se';
+  }catch(err){
+    bodyEl.innerHTML = '<p class="loading">Sorry, this post could not be loaded.</p>';
+  }
+}
+loadPost();
+</script>
+</body>
+</html>
