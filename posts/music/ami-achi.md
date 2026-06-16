@@ -14,6 +14,10 @@ excerpt: Bengali poem "I Remain" by Ahsan Habib, set to AI-generated music.
 
 <div class="lyrics"><div class="lyrics-lang">Lyrics · বাংলা</div>
 
+<details>
+
+<summary>Click to read</summary>
+
 নক্ষত্র আঁধার আর এই ক্ষোভ হাহাস্বরে নেই
 দক্ষিণ বাতাসে পাতা মন্দিরায় আমি নেই। আমি
 
@@ -40,6 +44,9 @@ excerpt: Bengali poem "I Remain" by Ahsan Habib, set to AI-generated music.
 আমি সঙ্গে থাকি তাই সঙ্গীত-সভায় বাজে করতালি
 সঙ্গে থাকি সামনে থাকি তাই রুদ্ধ উৎসব তোরণ
 কেঁপে কেঁপে ওঠে।
+
+</details>
+
 </div>
 
 <div class="lyrics latin"><div class="lyrics-lang">Lyrics · English</div>
