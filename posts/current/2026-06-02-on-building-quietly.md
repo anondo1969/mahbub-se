@@ -23,7 +23,7 @@ The image above is a normal Markdown image. Drop a file into the `media/` folder
 
 The video below is not stored on the site: it is embedded from elsewhere. Paste this snippet into the Markdown and it renders here. Replace the `src` with your own YouTube or Vimeo embed URL.
 
-<div class="embed"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Embedded talk" loading="lazy" allowfullscreen></iframe><div class="embed-cap">Embed · YouTube / Vimeo / self-hosted</div></div>
+<div class="embed"><iframe src="https://www.youtube.com/embed/aOtLszUsMjw" title="Embedded talk" loading="lazy" allowfullscreen></iframe><div class="embed-cap">Embed · YouTube / Vimeo / self-hosted</div></div>
 
 ## A PDF hosted on Zenodo
 
