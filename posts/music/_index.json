@@ -2,10 +2,18 @@
   {
     "slug": "ami-achi",
     "title": "আমি আছি",
-    "date": "2026-04-04",
+    "date": "2026-04-03",
     "lang": "bn",
     "type": "আহসান হাবীব",
     "excerpt": "Bengali poem \"I Remain\" by Ahsan Habib, set to AI-generated music."
+  },
+  {
+    "slug": "sensation",
+    "title": "বোধ",
+    "date": "2026-04-03",
+    "lang": "bn",
+    "type": "জীবনানন্দ দাশ",
+    "excerpt": "Bengali poem \"Sensation\" by Jibananda Das, set to AI-generated music."
   },
   {
     "slug": "she-boro-shukher-shomoy-noy",
@@ -22,13 +30,5 @@
     "lang": "bn",
     "type": "কাজী নজরুল ইসলাম",
     "excerpt": "Bengali poem \"Those iron gates of prison\" by Kazi Nazrul Islam, set to AI-generated music."
-  },
-  {
-    "slug": "sensation",
-    "title": "বোধ",
-    "date": "2026-04-03",
-    "lang": "bn",
-    "type": "জীবনানন্দ দাশ",
-    "excerpt": "Bengali poem \"Sensation\" by Jibananda Das, set to AI-generated music."
   }
 ]
