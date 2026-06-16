@@ -14,6 +14,10 @@ excerpt: Bengali poem "Sensation" by Jibananda Das, set to AI-generated music.
 
 <div class="lyrics"><div class="lyrics-lang">Lyrics · বাংলা</div>
 
+<details>
+
+<summary>Click to read</summary>
+
 বোধ
 
 আলো-অন্ধকারে যাই—মাথার ভিতরে
@@ -138,9 +142,16 @@ excerpt: Bengali poem "Sensation" by Jibananda Das, set to AI-generated music.
 Notes:
 
 বোধ/"Sensation," published in Pragati (প্রগতি, "Progress"), August, 1929; included in Gray Manuscripts (ধূসর পাণ্ডুলিপি).
+
+</details>
+
 </div>
 
 <div class="lyrics latin"><div class="lyrics-lang">Lyrics · English</div>
+
+<details>
+
+<summary>Click to read</summary>
 
 Sensation
 Jibanananda Das
@@ -268,5 +279,6 @@ A spoiled cucumber—chancred pumpkin,
 All that came to be within the heart of man
 —All that.
 
+</details>
 
 </div>

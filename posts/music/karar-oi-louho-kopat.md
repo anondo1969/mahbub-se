@@ -14,6 +14,10 @@ excerpt: Bengali poem "Those iron gates of prison" by Kazi Nazrul Islam, set to 
 
 <div class="lyrics"><div class="lyrics-lang">Lyrics · বাংলা</div>
 
+<details>
+
+<summary>Click to read</summary>
+
 কারার ঐ লৌহ-কপাট
 ভেঙ্গে ফেল্ কর্‌ রে লোপাট রক্ত-জমাট
 
@@ -34,9 +38,16 @@ excerpt: Bengali poem "Those iron gates of prison" by Kazi Nazrul Islam, set to 
 দে রে দেখি ভীম কারার ঐ ভিত্তি নাড়ি'।
 লাথি মার, ভাঙ্‌রে তালা! যত সব বন্দী-শালা —
 আগুন জ্বালা, আগুন জ্বালা, ফেল্ উপাড়ি॥
+
+</details>
+
 </div>
 
 <div class="lyrics latin"><div class="lyrics-lang">Lyrics · English</div>
+
+<details>
+
+<summary>Click to read</summary>
 
 Destroy those iron gates of prison,
 demolish the blood-stained stony altars
@@ -67,5 +78,7 @@ Kick - break the locks!
 All those prisons—
 set them on fire,
 burn them down, uproot them forever!
+
+</details>
 
 </div>

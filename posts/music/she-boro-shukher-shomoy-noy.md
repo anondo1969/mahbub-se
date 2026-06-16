@@ -14,6 +14,10 @@ excerpt: Bengali poem "This is no time for joy" by Shakti Chattopadhyay, set to 
 
 <div class="lyrics"><div class="lyrics-lang">Lyrics · বাংলা</div>
 
+<details>
+
+<summary>Click to read</summary>
+
 পা থেকে মাথা পর্যন্ত টলমল করে, (দেয়ালে দেয়াল, কার্নিশে কার্নিশ),
 ফুটপাত বদল হয় মধ্যরাতে
 
@@ -41,9 +45,15 @@ excerpt: Bengali poem "This is no time for joy" by Shakti Chattopadhyay, set to 
 বাড়ি ফেরার সময়, (বাড়ির ভিতর বাড়ি. পায়ের ভিতরে পাপ, বুকের ভিতর বুক)
 আর কিছু নয় ||
 
+</details>
+
 </div>
 
 <div class="lyrics latin"><div class="lyrics-lang">Lyrics · English</div>
+
+<details>
+
+<summary>Click to read</summary>
 
 From foot to head, everything sways—(wall to wall, cornice to cornice),
 the sidewalk changes at midnight
@@ -71,5 +81,7 @@ from foot to head, everything sways—(wall to wall, cornice to cornice),
 the sidewalk changes at midnight
 on the way home, (house within house, sin within foot, chest within chest)
 Nothing else.
+
+</details>
 
 </div>

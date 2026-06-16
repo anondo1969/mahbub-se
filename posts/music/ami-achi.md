@@ -51,6 +51,10 @@ excerpt: Bengali poem "I Remain" by Ahsan Habib, set to AI-generated music.
 
 <div class="lyrics latin"><div class="lyrics-lang">Lyrics · English</div>
 
+<details>
+
+<summary>Click to read</summary>
+
 I am not in stars, nor darkness, nor fury's dissonant roar,
 not in the chime swayed by southern winds.
 
@@ -78,5 +82,7 @@ Lifelong companion, I am in your dreams, your battles.
 Because I stand with you, applause thunders at the music hall;
 because I stand before you,
 the sealed gates of celebration tremble.
+
+</details>
 
 </div>
