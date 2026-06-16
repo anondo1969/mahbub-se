@@ -127,7 +127,6 @@ h1.display b{font-weight:700;font-style:normal;color:var(--clay)}
 .post-body hr{border:none;border-top:1px solid var(--rule);margin:30px 0}
 .post-body figure{margin:26px 0}
 .post-body img{width:100%;border:1px solid var(--rule);border-radius:3px;display:block}
-.post-body figcaption{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px;text-align:center}
 /* Bengali post body */
 .post-body.bn{font-family:'Noto Serif Bengali',serif;line-height:1.95}
 .post-body.bn h1{font-style:normal;font-weight:600}
@@ -144,7 +143,7 @@ h1.display b{font-weight:700;font-style:normal;color:var(--clay)}
 /* GIFs / screenshots inside .embed: responsive + centered, never wider than the column or the phone */
 .embed figure{margin:0}
 .embed img{width:auto;max-width:100%;height:auto;margin:0 auto}
-.embed-cap{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px;text-align:center}
+.embed-cap,figcaption{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px;text-align:center}
 .doc-card{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--rule);border-left:4px solid var(--clay);border-radius:3px;padding:16px 18px;margin:22px 0;text-decoration:none;color:inherit}
 .doc-card:hover{transform:translateX(3px)}
 .doc-ico{width:42px;height:52px;background:var(--paper-deep);border:1px solid var(--rule);border-radius:2px;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--clay);flex-shrink:0}
