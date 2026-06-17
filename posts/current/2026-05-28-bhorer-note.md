@@ -3,7 +3,7 @@ title: বাবার চিঠি
 date: 2026-02-26
 lang: bn
 type: চিঠি
-excerpt: এক
+excerpt: প্রথম চিঠি আমার মেয়ের জন্য।
 ---
 
 
