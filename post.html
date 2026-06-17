@@ -25,20 +25,22 @@
 <div class="scrim" id="scrim" onclick="toggleNav()"></div>
 <nav class="panel" id="panel">
   <div class="panel-label">Contents</div>
-  <a class="nav-link" href="index.html#about"><span class="nav-num">01</span>About</a>
-  <a class="nav-link" href="index.html#early"><span class="nav-num">02</span>Early Years</a>
-  <a class="nav-link" href="index.html#masters"><span class="nav-num">03</span>Masters</a>
-  <a class="nav-link" href="index.html#career"><span class="nav-num">04</span>Career</a>
+  <a class="nav-link" href="index.html#about"><span class="nav-num">01</span>Preface</a>
+  <a class="nav-link" href="index.html#early"><span class="nav-num">02</span>Early years</a>
+    <a class="nav-link" href="index.html#career"><span class="nav-num">03</span>Career</a>
+  <a class="nav-link" href="index.html#masters"><span class="nav-num">04</span>Master's work</a>
   <a class="nav-link" href="index.html#phd"><span class="nav-num">05</span>Doctoral work</a>
-  <a class="nav-link" href="index.html#tools"><span class="nav-num">06</span>Building Tools</a>
-  <a class="nav-link" href="index.html#writing-current"><span class="nav-num">07</span>Current Writing</a>
-  <a class="nav-link" href="index.html#writing-early"><span class="nav-num">08</span>Early Writing</a>
-  <a class="nav-link" href="index.html#music"><span class="nav-num">09</span>AI Music</a>
+  <a class="nav-link" href="index.html#writing-early"><span class="nav-num">06</span>Early writing</a>
+  <a class="nav-link" href="index.html#tools"><span class="nav-num">07</span>Things I build</a>
+  <a class="nav-link" href="index.html#music"><span class="nav-num">08</span>AI music</a>
+  <a class="nav-link" href="index.html#writing-current"><span class="nav-num">09</span>Current writing</a>
+  
+  
   <div class="panel-foot">
     mahbub.se<br>
-    <a href="https://github.com/anondo1969" target="_blank" rel="noopener">github</a> ·
-    <a href="https://www.linkedin.com/in/anondo" target="_blank" rel="noopener">linkedin</a> ·
-    <a href="https://scholar.google.com/citations?user=lIfPGYcAAAAJ" target="_blank" rel="noopener">scholar</a><br>
+    <a href="https://github.com/anondo1969" target="_blank" rel="noopener">GitHub</a> ·
+    <a href="https://www.linkedin.com/in/anondo" target="_blank" rel="noopener">LinkedIn</a> ·
+    <a href="https://scholar.google.com/citations?user=lIfPGYcAAAAJ" target="_blank" rel="noopener">Google Scholar</a><br>
     <a href="https://ongshi.com" target="_blank" rel="noopener">ongshi.com</a>
   </div>
 </nav>
@@ -47,7 +49,7 @@
   <section class="page active" style="padding-top:50px">
     <a class="back" id="backLink" href="index.html#writing-current">← Back</a>
     <div class="post-meta" id="postMeta"></div>
-    <article class="post-body" id="postBody"><p class="loading">Loading…</p></article>
+    <article class="post-body" id="postBody"><p class="loading">One moment: pulling this from the shelf…</p></article>
     <div class="mantra">Build slowly, write often</div>
   </section>
 
@@ -123,7 +125,7 @@ async function loadPost(){
     bodyEl.innerHTML = marked.parse(body);
     if(meta.title) document.title = meta.title + ' — mahbub.se';
   }catch(err){
-    bodyEl.innerHTML = '<p class="loading">Sorry, this post could not be loaded.</p>';
+    bodyEl.innerHTML = '<p class="loading">This one would not come off the shelf. Check your connection and try refreshing.</p>';
   }
 }
 loadPost();

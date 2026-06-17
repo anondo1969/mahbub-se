@@ -8,7 +8,7 @@ excerpt: Bengali poem "Sensation" by Jibananda Das, set to AI-generated music.
 
 # বোধ
 
-<div class="song-sub latin">Bengali poem "Sensation" by Jibananda Das, set to AI-generated music</div>
+<div class="song-sub latin">Bengali poem "Sensation" by Jibananda Das.</div>
 
 <div class="track"><span class="track-tag">AI Music · 🌿</span><audio controls preload="none" src="media/sensation.mp3">Your browser does not support the audio element.</audio></div>
 

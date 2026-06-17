@@ -71,7 +71,7 @@ async function loadStream(sectionId){
 
     target.innerHTML = items.map(it=>renderRow(s.key, it)).join('');
   }catch(err){
-    target.innerHTML = '<p class="empty-note">Could not load this section yet.</p>';
+    target.innerHTML = '<p class="empty-note">This one would not come off the shelf. Check your connection and try refreshing.</p>';
   }
 }
 

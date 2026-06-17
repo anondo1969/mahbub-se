@@ -3,7 +3,7 @@ title: কারার ঐ লৌহ-কপাট
 date: 2026-04-01
 lang: bn
 type: কাজী নজরুল ইসলাম
-excerpt: Bengali poem "Those iron gates of prison" by Kazi Nazrul Islam, set to AI-generated music.
+excerpt: Bengali poem "Those iron gates of prison" by Kazi Nazrul Islam.
 ---
 
 # কারার ঐ লৌহ-কপাট

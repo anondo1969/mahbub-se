@@ -8,7 +8,7 @@ excerpt: Bengali poem "I Remain" by Ahsan Habib, set to AI-generated music.
 
 # আমি আছি
 
-<div class="song-sub latin">Bengali poem "I Remain" by Ahsan Habib, set to AI-generated music</div>
+<div class="song-sub latin">Bengali poem "I Remain" by Ahsan Habib.</div>
 
 <div class="track"><span class="track-tag">AI Music · 🌿</span><audio controls preload="none" src="media/I-dwelled-in-stone.mp3">Your browser does not support the audio element.</audio></div>
 

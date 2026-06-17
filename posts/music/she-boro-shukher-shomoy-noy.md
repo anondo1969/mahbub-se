@@ -3,7 +3,7 @@ title: সে বড়ো সুখের সময় নয়
 date: 2026-04-02
 lang: bn
 type: শক্তি চট্টোপাধ্যায়
-excerpt: Bengali poem "This is no time for joy" by Shakti Chattopadhyay, set to AI-generated music.
+excerpt: Bengali poem "This is no time for joy" by Shakti Chattopadhyay.
 ---
 
 # সে বড়ো সুখের সময় নয়
