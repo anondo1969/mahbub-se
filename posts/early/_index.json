@@ -1,5 +1,101 @@
 [
   {
+    "slug": "2022-07-23-received-the-best-student-paper-award-at-the-ieee-cbms-2022-conference",
+    "title": "Received the Best Student Paper Award at the IEEE CBMS 2022 Conference",
+    "date": "2022-07-23",
+    "lang": "en",
+    "type": "PhD blog",
+    "excerpt": "I recently published a paper with two other co-authors at the IEEE 35th International Symposium on Computer Based Medical Systems (CBMS 2022, July 21-23, 2022, Shenzhen, China, Online Event). CBMS..."
+  },
+  {
+    "slug": "2021-07-27-data-science-dsv-ph-d-workshop-march-26-2021",
+    "title": "Data Science @ DSV Ph.D. Workshop on March 26, 2021",
+    "date": "2021-07-27",
+    "lang": "en",
+    "type": "PhD blog",
+    "excerpt": "The Data Science Research Group at the Department of Computer and Systems Sciences (DSV) of Stockholm University organized a Ph.D. Workshop where Ph.D. students presented their ongoing research. Mykola Pechenizkiy..."
+  },
+  {
+    "slug": "2021-07-27-mid-term-seminar-halvtidssemarium-on-24-june-2021-1000-1200",
+    "title": "Mid-term Seminar (Halvtidssemarium) on  24 June 2021 10:00-12:00",
+    "date": "2021-07-27",
+    "lang": "en",
+    "type": "PhD blog",
+    "excerpt": "On 24 June 2021 (10:00-12:00), I presented the mid-term seminar (Halvtidssemarium) with my current research summary entitled 'Improvement of Internet of Medical Things based Applications with Distributed Machine Learning Approach'..."
+  },
+  {
+    "slug": "2021-07-27-the-first-inria-dfki-european-summer-school-on-artificial-intelligence-idai-2021-july-20-23-2021",
+    "title": "First Inria-DFKI European Summer School on Artificial Intelligence (IDAI 2021), July 20-23, 2021",
+    "date": "2021-07-27",
+    "lang": "en",
+    "type": "PhD blog",
+    "excerpt": "The First Inria-DFKI European Summer School on Artificial Intelligence (IDAI 2021) is an online event held on July 20-23, 2021. It had two themes, 'Trustworthy AI' and 'AI for Medicine'..."
+  },
+  {
+    "slug": "2020-12-09-abstract-publication-automated-surveillance-of-urinary-tract-infections-in-a-tertiary-care-hospital-in-stockholm",
+    "title": "Abstract publication: Automated surveillance of urinary tract infections in a tertiary care hospital in Stockholm, 18-21 April, 2020 (event canceled)",
+    "date": "2020-12-09",
+    "lang": "en",
+    "type": "PhD blog",
+    "excerpt": "Recently I participated in one interesting work titled 'Automated surveillance of urinary tract infections in a tertiary care hospital in Stockholm.' I was responsible for mining the UTI-symptoms from free..."
+  },
+  {
+    "slug": "2020-04-06-healthinf-2020-conference-and-best-paper-award",
+    "title": "13th International Conference on Health Informatics (HEALTHINF 2020) and the 'best paper award', 24-26 February, 2020",
+    "date": "2020-04-06",
+    "lang": "en",
+    "type": "PhD blog",
+    "excerpt": "I presented a research paper entitled 'Deep Learning from Heterogeneous Sequences of Sparse Medical Data for Early Prediction of Sepsis' in the 13th International Conference on Health Informatics (HEALTHINF), Malta..."
+  },
+  {
+    "slug": "2019-06-20-received-a-conference-travel-grant-from-helge-axson-johnsons-stiftelse-helge-ax-son-johnsons-foundation",
+    "title": "Received a conference travel grant from Helge Ax:son Johnsons Stiftelse (Helge Ax: son Johnson's Foundation), June 20, 2019",
+    "date": "2019-06-20",
+    "lang": "en",
+    "type": "PhD blog",
+    "excerpt": "I have received a conference travel grant from Helge Ax: son Johnson's Foundation for the HEALTHINF 2020 conference in Malta. \\\"Helge Axelsson Johnson was born on June 22, 1878, as..."
+  },
+  {
+    "slug": "2019-05-30-runestone-safari-28-may-2019",
+    "title": "Runestone Safari, 28 May, 2019",
+    "date": "2019-05-30",
+    "lang": "en",
+    "type": "PhD blog",
+    "excerpt": "One uneventful day Gustaf and I were having lunch together in the kitchen area. Somehow the discussion topic moved to runestone. I am quite fond of history, so I expressed..."
+  },
+  {
+    "slug": "2019-05-06-mini-symposium-on-automated-sepsis-detection-using-machine-learning-techniques",
+    "title": "Mini-symposium on automated sepsis detection using machine learning techniques at the Karolinska Institute, May 2, 2019",
+    "date": "2019-05-06",
+    "lang": "en",
+    "type": "PhD blog",
+    "excerpt": "Recently I attended a symposium about sepsis and the early detection using machine learning. I presented my current work there. David Forsberg (postdoc from Professor Eric Herlenius group in the..."
+  },
+  {
+    "slug": "2019-04-12-time-flies",
+    "title": "A short reflection on my journey of pursuing a Ph.D. degree",
+    "date": "2019-04-12",
+    "lang": "en",
+    "type": "PhD blog",
+    "excerpt": "15 April 2019 “The first principle is that you must not fool yourself — and you are the easiest person to fool.”- Richard Feynman Who am I? It has been..."
+  },
+  {
+    "slug": "2018-11-15-seventh-swedish-language-technology-conference-stockholm-7-9-november-2018",
+    "title": "Seventh Swedish Language Technology Conference, Stockholm, 7-9 November 2018",
+    "date": "2018-11-15",
+    "lang": "en",
+    "type": "PhD blog",
+    "excerpt": "I worked as a volunteer in the seventh Swedish Language Technology Conference, Stockholm, 7-9 November 2018. I was very new in Stockholm at that time. The other volunteers, Johanna, Jacqueline..."
+  },
+  {
+    "slug": "2018-11-13-2018-conference-on-empirical-methods-in-natural-language-processing-emnlp-2018",
+    "title": "2018 Conference on Empirical Methods in Natural Language Processing (EMNLP 2018), 31 October - 04 November, 2018",
+    "date": "2018-11-13",
+    "lang": "en",
+    "type": "PhD blog",
+    "excerpt": "Hello everyone. I hope you are all fine and enjoying this beautiful winter. 🙂 Recently I have attended the EMNLP 2018 conference. It was held in Brussels, Belgium at the..."
+  },
+  {
     "slug": "2012-05-15-অকবির-স্বীকারোক্তি",
     "title": "অকবির স্বীকারোক্তি",
     "date": "2012-05-15",
