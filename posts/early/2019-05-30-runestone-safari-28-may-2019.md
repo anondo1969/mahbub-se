@@ -17,7 +17,7 @@ Sometimes after Gustaf reminded me that a safari is still pending. We then discu
 
 *Gustaf and I are welcoming you all to a magical journey to the mysterious realm of the past, the runestone saf*ari!
 
-![](http://mahbub.blogs.dsv.su.se/files/2021/09/image001.jpg)
+<img src="http://mahbub.blogs.dsv.su.se/files/2021/09/image001.jpg" alt="" style="width:100%;max-width:200px;height:auto" />
 
 *A runestone is typically a raised stone with a runic inscription, but the term can also be applied to inscriptions on boulders and bedrock. The tradition began in the 4th century and lasted into the 12th century, but most of the runestones date from the late Viking Age. Runes are the letters in a set of related alphabets known as runic alphabets, which were used to write various Germanic languages before the adoption of the Latin alphabet and for specialized purposes thereafter.*
 

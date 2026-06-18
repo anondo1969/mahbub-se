@@ -18,7 +18,7 @@ My presentation slides are attached here.
 ![Official certificate for HEALTHINF 2020 'best paper award'](https://mahbub.blogs.dsv.su.se/files/2020/04/best_paper_award-724x1024.jpg)
 *Official certificate for HEALTHINF 2020 'best paper award'*
 
-![With program chair Dr. Fedrico Cabitza](https://mahbub.blogs.dsv.su.se/files/2020/04/GetImage.ashxx_.jpg)
+<img src="https://mahbub.blogs.dsv.su.se/files/2020/04/GetImage.ashxx_.jpg" alt="With program chair Dr. Fedrico Cabitza" style="width:100%;max-width:586px;height:auto" />
 *With program chair Dr. Fedrico Cabitza*
 
 ![](https://mahbub.blogs.dsv.su.se/files/2020/04/DSC_0154-578x1024.jpg)

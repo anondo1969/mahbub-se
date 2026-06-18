@@ -19,7 +19,7 @@ excerpt: "1. Presentation Video PhD Public Defence: Advancing Clinical Decision 
 
 ![](http://mahbub.blogs.dsv.su.se/files/2022/05/poster_Mahbub_Ul_Alam-1.pdf)[Slides Download Link](http://mahbub.blogs.dsv.su.se/files/2025/02/defence_presentation_slides.pdf)
 
-<video controls src="http://mahbub.blogs.dsv.su.se/files/2025/09/PhD_defence_28-03-2024_Mahbub_Ul_Alam.mp4"></video>
+<video controls style="display:block;margin:0 auto;width:100%;max-width:800px;height:auto" src="http://mahbub.blogs.dsv.su.se/files/2025/09/PhD_defence_28-03-2024_Mahbub_Ul_Alam.mp4"></video>
 
 ---
 
@@ -61,7 +61,7 @@ Paper: **[Exploring LRP and Grad-CAM visualization to interpret multi-label-mult
 
 [Slides Download Link](https://mahbub.blogs.dsv.su.se/files/2022/07/presentation_slides.pdf)
 
-<video controls src="https://mahbub.blogs.dsv.su.se/files/2022/07/presentation_video_extended.mp4"></video>
+<video controls style="display:block;margin:0 auto;width:100%;max-width:800px;height:auto" src="https://mahbub.blogs.dsv.su.se/files/2022/07/presentation_video_extended.mp4"></video>
 
 ---
 
@@ -91,7 +91,7 @@ Paper: [**Intelligent context-based healthcare metadata aggregator in internet o
 
 [Presentation Video Download Link](http://mahbub.blogs.dsv.su.se/files/2022/05/presentation.mp4)
 
-<video controls src="http://mahbub.blogs.dsv.su.se/files/2022/05/presentation.mp4"></video>
+<video controls style="display:block;margin:0 auto;width:100%;max-width:800px;height:auto" src="http://mahbub.blogs.dsv.su.se/files/2022/05/presentation.mp4"></video>
 
 ---
 
@@ -103,7 +103,7 @@ Paper: **[Deep Learning from Heterogeneous Sequences of Sparse Medical Data for 
 
 [Slides Download Link](https://mahbub.blogs.dsv.su.se/files/2020/04/HEALTHINF_2020_presentation_slides_Mahbub_Ul_Alam.pdf)
 
-<video controls src="http://mahbub.blogs.dsv.su.se/files/2022/05/early_detection_of_sepsis_Mahbub_Ul_Alam.mp4"></video>
+<video controls style="display:block;margin:0 auto;width:100%;max-width:800px;height:auto" src="http://mahbub.blogs.dsv.su.se/files/2022/05/early_detection_of_sepsis_Mahbub_Ul_Alam.mp4"></video>
 
 ---
 

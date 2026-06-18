@@ -11,7 +11,7 @@ excerpt: "SHAMSUL Demo App: https://shamsul.serve.scilifelab.se/ SHAMSUL SHAMSUL
 
 # [**SHAMSUL Demo App: https://shamsul.serve.scilifelab.se/**](https://shamsul.serve.scilifelab.se/)
 
-<img src="http://mahbub.blogs.dsv.su.se/files/2025/04/SHAMSUL.gif" alt="SHAMSUL Demo App: https://shamsul.serve.scilifelab.se/" width="840" />
+<img src="http://mahbub.blogs.dsv.su.se/files/2025/04/SHAMSUL.gif" alt="SHAMSUL Demo App: https://shamsul.serve.scilifelab.se/" style="width:100%;max-width:840px;height:auto" />
 
 ## **SHAMSUL**
 
