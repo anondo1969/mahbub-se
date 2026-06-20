@@ -1,0 +1,11 @@
+[
+  { "id": "about",           "title": "Preface" },
+  { "id": "early",           "title": "Early years" },
+  { "id": "career",          "title": "Career" },
+  { "id": "masters",         "title": "Master's work" },
+  { "id": "phd",             "title": "Doctoral work" },
+  { "id": "writing-early",   "title": "Early writing" },
+  { "id": "tools",           "title": "Things I build" },
+  { "id": "music",           "title": "AI music" },
+  { "id": "writing-current", "title": "Current writing" }
+]
