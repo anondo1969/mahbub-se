@@ -74,6 +74,9 @@ h1.display b{font-weight:700;font-style:normal;color:var(--clay)}
 .quote{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:22px 0;margin:32px 0;text-align:center}
 .quote p{font-style:italic;font-size:1.3rem;max-width:48ch;margin:0 auto}
 
+.quote-bn{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:22px 0;margin:32px 0;text-align:center}
+.quote-bn p{font-family:'Noto Serif Bengali',serif;font-weight:600;font-size:1.0rem; font-style:normal;line-height:2;max-width:80ch;margin:0 auto}
+
 /* dark feature card */
 .feature{background:var(--dark);color:var(--paper);border-radius:4px;padding:26px;margin:28px 0}
 .feature .label{color:var(--ochre);margin-top:0}

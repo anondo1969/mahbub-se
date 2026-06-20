@@ -39,7 +39,11 @@
   <section class="page active" style="padding-top:50px">
     <a class="back" id="backLink" href="index.html#writing-current">← Back</a>
     <div class="post-meta" id="postMeta"></div>
-    <article class="post-body" id="postBody"><p class="loading">One moment: pulling this from the shelf…</p></article>
+    <article class="post-body" id="postBody"><noscript>
+      <h1 class="display">You arrived with the <b>lights</b> off.</h1>
+      <p class="lead">JavaScript is switched off, so this page cannot fetch the writing you came for. You are among the rare few who browse this way, and I admire it: still, the words live just behind a script that is, for now, asleep.</p>
+      <p class="lead">Switch JavaScript on and the piece will appear. Until then, I am sorry to meet you only here, at the door. 😟</p>
+    </noscript></article>
     <div class="mantra">Build slowly, write often</div>
   </section>
 
@@ -83,6 +87,7 @@ async function loadPost(){
   const slug = (param('slug') || '').replace(/[^a-z0-9_.\u0980-\u09FF-]/gi,'');
   const bodyEl = document.getElementById('postBody');
   const metaEl = document.getElementById('postMeta');
+  bodyEl.innerHTML = '<p class="loading">Turning the page… this site runs on JavaScript, so give it a moment.</p>';
 
   if(!slug){
     bodyEl.innerHTML = '<p class="loading">No post specified.</p>';
@@ -115,7 +120,9 @@ async function loadPost(){
     bodyEl.innerHTML = marked.parse(body);
     if(meta.title) document.title = meta.title + ' — mahbub.se';
   }catch(err){
-    bodyEl.innerHTML = '<p class="loading">This one would not come off the shelf. Check your connection and try refreshing.</p>';
+    bodyEl.innerHTML = '<p class="loading">' + (navigator.onLine
+      ? 'This piece would not come off the shelf. Try refreshing the page.'
+      : 'You appear to be offline, so this piece cannot be fetched right now. Reconnect and it will appear.') + '</p>';
   }
 }
 loadPost();

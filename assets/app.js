@@ -94,15 +94,16 @@ async function showSection(id){
 
   let text = chapterTextCache[id];
   if(text === undefined){
-    host.innerHTML = chapterHead(id) + '<p class="loading">One moment: pulling this from the shelf…</p>';
+    host.innerHTML = chapterHead(id) + '<p class="loading">Turning the page… this site runs on JavaScript, so give it a moment.</p>';
     try{
       const res = await fetch(`chapters/${id}.html`, {cache:'no-store'});
       if(!res.ok) throw new Error(res.status);
       text = await res.text();
       chapterTextCache[id] = text;
     }catch(err){
-      host.innerHTML = chapterHead(id)
-        + '<p class="empty-note">This one would not come off the shelf. Check your connection and try refreshing.</p>';
+      host.innerHTML = chapterHead(id) + '<p class="empty-note">' + (navigator.onLine
+        ? 'This chapter would not come off the shelf. Try refreshing the page.'
+        : 'You appear to be offline, so this chapter cannot be fetched right now. Chapters you have already opened still work: reconnect to read the rest.') + '</p>';
       return;
     }
   }
@@ -155,7 +156,9 @@ async function loadStream(sectionId){
     target.innerHTML = streamCache[s.key];
   }catch(err){
     // do not cache the error: a refresh can try again
-    target.innerHTML = '<p class="empty-note">This one would not come off the shelf. Check your connection and try refreshing.</p>';
+    target.innerHTML = '<p class="empty-note">' + (navigator.onLine
+      ? 'This list would not come off the shelf. Try refreshing the page.'
+      : 'You appear to be offline, so these entries cannot be fetched right now. Reconnect and they will load.') + '</p>';
   }
 }
 
