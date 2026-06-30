@@ -6,7 +6,7 @@ type: রবীন্দ্রনাথ ঠাকুর
 excerpt: Bengali poem "You set forth as I fade away" by Rabindranath Tagore.
 ---
 
-# বোধ
+# তোমার হলো শুরু, আমার হলো সারা
 
 <div class="song-sub latin">Bengali poem "You set forth as I fade away" by Rabindranath Tagore.</div>
 
